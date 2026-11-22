@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "Commands\add.hpp"
 #include "Commands\init.hpp"
+#include "Commands\status.hpp"
 #include "Core\hash.hpp"
 
 int main(int argc, char* argv[]){
@@ -37,6 +38,8 @@ int main(int argc, char* argv[]){
 		}else{
 			return cmd_add(argv[2]);
 		}
+	}else if(strcmp(cmd, "status") == 0){
+		return cmd_status();
 	}else{
 		cout << "Unknown command!" << endl;
 		return 1;
