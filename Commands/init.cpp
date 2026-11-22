@@ -15,7 +15,7 @@ int cmd_init(){
 	FILE* f;
 	f = fopen(".git\\HEAD", "wb");
 	
-	if (f != NULL){
+	if(f != NULL){
 		fprintf(f, "ref: refs/heads/master\n");
 		fclose(f);
 	}
