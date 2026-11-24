@@ -2,9 +2,10 @@
 #include <string.h>
 #include <stdlib.h>
 #include "Commands\add.hpp"
+#include "Commands\checkout.hpp"
+#include "Commands\commit.hpp"
 #include "Commands\diff.hpp"
 #include "Commands\init.hpp"
-#include "Commands\checkout.hpp"
 #include "Commands\status.hpp"
 #include "Core\hash.hpp"
 
@@ -55,6 +56,13 @@ int main(int argc, char* argv[]){
 			return 1;
 		}else{
 			return cmd_diff(argv[2]);
+		}
+	}else if(strcmp(cmd, "commit") == 0){
+		if(argc < 4 || strcmp(argv[2], "-m") != 0){
+			cout << "Usage: os2git commit -m \"message\"" << endl;
+			return 1;
+		}else{
+			return cmd_commit(argv[3]);
 		}
 	}else{
 		cout << "Unknown command!" << endl;
