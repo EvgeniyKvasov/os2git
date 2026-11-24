@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "Commands\add.hpp"
 #include "Commands\init.hpp"
+#include "Commands\checkout.hpp"
 #include "Commands\status.hpp"
 #include "Core\hash.hpp"
 
@@ -40,6 +41,13 @@ int main(int argc, char* argv[]){
 		}
 	}else if(strcmp(cmd, "status") == 0){
 		return cmd_status();
+	}else if(strcmp(cmd, "checkout") == 0){
+		if(argc < 3){
+			cout << "Usage: os2git checkout <file>" << endl;
+			return 1;
+		}else{
+			return cmd_checkout(argv[2]);
+		}
 	}else{
 		cout << "Unknown command!" << endl;
 		return 1;
