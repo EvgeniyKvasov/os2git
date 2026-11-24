@@ -25,7 +25,7 @@ int cmd_checkout(const char* filename){
 		
 	*sp = 0;
 	char* entryName = sp + 1;
-	*(entryName + strcspn(filename, "\r\n")) = 0;
+	*(entryName + strcspn(entryName, "\r\n")) = 0;
 	
 	if(strcmp(entryName, filename) == 0){
 		strcpy(lastHex, line);

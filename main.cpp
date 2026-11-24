@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "Commands\add.hpp"
+#include "Commands\diff.hpp"
 #include "Commands\init.hpp"
 #include "Commands\checkout.hpp"
 #include "Commands\status.hpp"
@@ -47,6 +48,13 @@ int main(int argc, char* argv[]){
 			return 1;
 		}else{
 			return cmd_checkout(argv[2]);
+		}
+	}else if(strcmp(cmd, "diff") == 0){
+		if(argc < 3){
+			cout << "Usage: os2git diff <file>" << endl;
+			return 1;
+		}else{
+			return cmd_diff(argv[2]);
 		}
 	}else{
 		cout << "Unknown command!" << endl;
