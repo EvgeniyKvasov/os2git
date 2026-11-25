@@ -5,6 +5,7 @@
 #include "Commands\checkout.hpp"
 #include "Commands\commit.hpp"
 #include "Commands\diff.hpp"
+#include "Commands\log.hpp"
 #include "Commands\init.hpp"
 #include "Commands\status.hpp"
 #include "Core\hash.hpp"
@@ -64,6 +65,8 @@ int main(int argc, char* argv[]){
 		}else{
 			return cmd_commit(argv[3]);
 		}
+	}else if(strcmp(cmd, "log") == 0){
+		return cmd_log();
 	}else{
 		cout << "Unknown command!" << endl;
 		return 1;
