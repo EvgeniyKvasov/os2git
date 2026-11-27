@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "Commands\add.hpp"
 #include "Commands\checkout.hpp"
+#include "Commands\config.hpp"
 #include "Commands\commit.hpp"
 #include "Commands\diff.hpp"
 #include "Commands\log.hpp"
@@ -67,6 +68,13 @@ int main(int argc, char* argv[]){
 		}
 	}else if(strcmp(cmd, "log") == 0){
 		return cmd_log();
+	}else if(strcmp(cmd, "config") == 0){
+			if(argc < 3 || argc > 4){
+				cout << "Usage: os2git config <key> <value> or os2git config --list" << endl;
+				return 1;
+		}else{
+			return cmd_config(argc, argv);
+		}
 	}else{
 		cout << "Unknown command!" << endl;
 		return 1;

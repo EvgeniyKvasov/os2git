@@ -1,6 +1,6 @@
 CC = icc
 CFLAGS = 
-OBJS = init.obj main.obj hash.obj add.obj status.obj objects.obj checkout.obj diff.obj commit.obj log.obj
+OBJS = init.obj main.obj hash.obj add.obj status.obj objects.obj checkout.obj diff.obj commit.obj log.obj config.obj
 
 os2git.exe: $(OBJS)
 	$(CC) $(OBJS) /Feos2git.exe
@@ -34,6 +34,9 @@ commit.obj: Commands\commit.cpp Commands\commit.hpp
 
 log.obj: Commands\log.cpp Commands\log.hpp 
 	$(CC) $(CFLAGS) /c Commands\log.cpp 
+	
+config.obj: Commands\config.cpp Commands\config.hpp 
+	$(CC) $(CFLAGS) /c Commands\config.cpp 
 	
 clean:
 	del *.obj os2git.exe
